@@ -1,8 +1,6 @@
-import Router from 'next/router'
-
 import { useUser } from '../../context/UserContext'
-import { useDispatchPath, usePath } from '../../context/PathContext'
-import DashboardBase, { IPage } from '../../components/dashboard/DashboardBase'
+import { IPage, useDispatchPath } from '../../context/PathContext'
+import DashboardBase from '../../components/dashboard/DashboardBase'
 import AdminPortal from '../../components/dashboard/AdminPortal'
 import Library from '../../components/dashboard/Library'
 import Settings from '../../components/dashboard/Settings'
@@ -14,11 +12,10 @@ import Tab from 'react-bootstrap/Tab'
 
 export default function Dashboard(): JSX.Element {
   const user = useUser()
-  const pagePath = usePath()
   const dispatchPath = useDispatchPath()
 
   const handleTabClick = (eventKey: any, _: any) => {
-    let page = { name: eventKey, url: '' }
+    let page: IPage = { name: eventKey, url: '' }
 
     switch (eventKey) {
       default:
