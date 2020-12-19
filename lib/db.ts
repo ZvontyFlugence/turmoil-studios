@@ -6,7 +6,11 @@ const dbName = process.env.NEXT_PUBLIC_DB_NAME
 const uri = process.env.NEXT_PUBLIC_MONGO_URI || 'mongodb://localhost:27017'
 const options = { useNewUrlParser: true, useUnifiedTopology: true }
 
-const state = { db: null }
+interface IDb {
+  db?: mongodb.Db | null
+}
+
+const state: IDb = { db: null }
 
 export const connect = async (callback: (err: any, db: any) => any) => {
   if (state.db) {
@@ -20,6 +24,21 @@ export const connect = async (callback: (err: any, db: any) => any) => {
         return await callback(undefined, state.db)
       }
     })
+  }
+}
+
+export const connectAsync = async () => {
+  if (state.db) {
+    return state.db
+  } else {
+    let dbClient = await MongoClient.connect(uri, options)
+
+    if (dbClient) {
+      state.db = dbClient.db(dbName)
+      return state.db
+    } else {
+      return null
+    }
   }
 }
 

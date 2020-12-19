@@ -32,7 +32,7 @@ export default class ApiService implements IApi {
   }
 
   handleError(error: any): any {
-    return Promise.reject(error)
+    return Promise.reject(error.response || error)
   }
 
   get(path: string): Promise<any> {

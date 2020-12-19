@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import Link from 'next/link'
 
-import { useDispatchUser } from '../context/UserContext'
+import { IUser, useDispatchUser } from '../context/UserContext'
 import PublicLayout from '../components/layout/PublicLayout'
 import styles from '../styles/login.module.scss'
 
@@ -15,6 +16,11 @@ interface IFormData {
   error: string,
 }
 
+interface ILoginResponse {
+  token?: string,
+  user?: IUser,
+}
+
 export default function Login(): JSX.Element {
   const dispatchUser = useDispatchUser()
   const [formData, setFormData] = useState<IFormData>({ email: '', password: '', error: '' });
@@ -27,7 +33,7 @@ export default function Login(): JSX.Element {
     e.preventDefault()
 
     TSApi.login({ email: formData.email, password: formData.password })
-      .then(data => {
+      .then((data: ILoginResponse) => {
         if (data.token && data.user) {
           dispatchUser({ type: 'LOGIN', payload: { user: data.user, token: data.token } })
         }
@@ -51,7 +57,7 @@ export default function Login(): JSX.Element {
         <Form onSubmit={submitLogin}>
           <Form.Group controlId='email'>
             <Form.Label>Email:</Form.Label>
-            <Form.Control type='text' name='email' onChange={handleChange} />
+            <Form.Control type='email' name='email' onChange={handleChange} />
           </Form.Group>
           <Form.Group controlId='password'>
             <Form.Label>Password:</Form.Label>
@@ -59,6 +65,9 @@ export default function Login(): JSX.Element {
           </Form.Group>
           <Form.Group>
             <Button variant='outline-secondary' type='submit' block>Login</Button>
+            <p>
+              Don't have an account? <Link href='/register'><a style={{ color: 'white' }}>Register</a></Link>
+            </p>
           </Form.Group>
         </Form>
       </div>

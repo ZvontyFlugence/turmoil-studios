@@ -28,7 +28,7 @@ const reducer = (state: IUser | null, action: any): IUser | null => {
     case 'DELETE':
     case 'LOGOUT':
       localStorage.removeItem('token')
-      TSApi.setToken(null)
+      TSApi.setToken(undefined)
       return null
     default:
       return state
