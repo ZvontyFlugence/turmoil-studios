@@ -1,0 +1,40 @@
+@import "palette";
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  background-color: $primary;
+  color: $secondary;
+  width: 100vw;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+.navbar-dark  .navbar-nav .nav-link {
+  color: white;
+}
+
+#ts-navbar {
+  min-height: 10vh;
+}
+
+#ts-navbar-nav {
+  background-color: $primary;
+  width: 100vw;
+}
+
+#ts-body {
+  min-height: 85vh;
+}
+
+#ts-footer {
+  max-height: 5vh;
+  overflow: hidden;
+  padding: 0 2vw;
+  display: flex;
+  justify-content: center;
+}
+
+.ts-navbar-brand {
+  width: 5vh;
+  height: 100%;
+}

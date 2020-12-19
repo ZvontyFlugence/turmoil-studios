@@ -1,0 +1,39 @@
+@import "palette";
+
+@media screen and (min-width: 769px) {
+  .dashboard_content {
+    padding-left: 5vw;
+  }
+}
+
+// Tablets and Landscape Mobile
+@media (max-width: 768px) {
+
+}
+
+// Mobile
+@media (max-width: 480px) {
+
+}
+
+.dashboard {
+  background-color: $secondary;
+  width: 100vw;
+  color: $primary;
+  padding: 10px;
+  padding-top: 0;
+}
+
+.delete_account_modal {
+  color: black;
+}
+
+.acc_badge {
+  margin-left: 10px;
+}
+
+.ts_card_img {
+  margin: 0 auto;
+  background-color: #777;
+  padding: 10px;
+}

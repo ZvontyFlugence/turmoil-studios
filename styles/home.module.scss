@@ -1,0 +1,194 @@
+@import 'palette';
+
+$minWidth: min-width;
+$maxWidth: max-width;
+$computer: 769px;
+$tablet: 768px;
+$mobile: 480px;
+
+// Computer
+@media #{screen} and ($minWidth: $tablet) {
+  .ts_splash_img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .h1 {
+    line-height: 1.2em;
+    margin-left: 10px;
+    font-size: 500%;
+  }
+
+  .ts_section_desc {
+    padding-left: 0;
+    padding-right: 5vw;
+    text-align: left;
+  }
+
+  .ts_icon_card {
+    width: 25vw;
+    margin: 0 auto;
+  }
+}
+
+// Tablet
+@media #{screen} and ($maxWidth: $tablet) {
+  .ts_splash_img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .ts_section_desc {
+    text-align: left;
+    padding-left: 5vw;
+  }
+
+  .ts_icon_card {
+    width: 50vw;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+}
+
+// Mobile
+@media #{screen} and ($maxWidth: $mobile) {
+  .ts_splash_img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .h1 {
+    font-size: 200%;
+  }
+
+  .ts_section_desc {
+    text-align: center;
+    padding-left: 5vw;
+  }
+
+  .ts_icon_card {
+    width: 100vw;
+    margin-bottom: 25px;
+  }
+}
+
+.splash {
+  height: 95vh;
+  text-align: center;
+
+  .h1 {
+    margin-top: 5vh;
+  }
+}
+
+.about, .team {
+  background-color: #222222;
+}
+
+.col-12 {
+  .ts_about_img {
+    margin-bottom: 5vh;
+  }
+}
+
+.ts_section {
+  width: 100%;
+  padding-bottom: 5vh;
+
+  .row {    
+    .h1 {
+      width: 100vw;
+      padding-top: 5vh;
+      text-align: center;
+    }
+  }
+}
+
+.ts_section_content {
+  margin: 0 auto;
+  margin-top: 5vh;
+  width: 100vw;
+  text-align: center;
+  padding-bottom: 5vh;
+
+  .row {
+    width: 100vw;
+  }
+
+  .card-text {
+    text-align: left;
+  }
+
+  .col-lg-3, .col-12 {
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.ts_section_desc {
+  color: white;
+  font-size: 24px;
+}
+
+.ts_icon_card {
+  color: black;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.ts_splash_img {
+  margin-top: 10vh;
+}
+
+.ts_about_img {
+  width: 50%;
+  border-radius: 50%;
+  box-shadow: 0 0 25px black;
+}
+
+.ts_card_img {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.ts_contact_icon {
+  color: white;
+  width: 15%;
+}
+
+.pulse {
+  margin: 0 auto;
+  margin-top: 10vh;
+  padding: 0;
+  border-radius: 0.25em;
+  width: 92px;
+  height: 80px;
+}
+
+.pulse::before,
+.pulse::after
+{
+  content: '';
+  display: block;
+  border: 1px solid white;
+  animation: pulse-anim 1.5s linear infinite;
+}
+
+.pulse::before,
+.pulse::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulse-anim {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

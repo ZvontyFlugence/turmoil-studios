@@ -1,0 +1,24 @@
+@import "palette";
+
+.login {
+  margin: 0 auto;
+  margin-top: 10vh;
+}
+
+@media (max-width: 480px) {
+  .login {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login {
+    width: 50vw;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .login {
+    width: 25vw;
+  }
+}
