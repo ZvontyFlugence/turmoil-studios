@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import initMiddleware from '../../../lib/initMiddleware'
 import { connect } from '../../../lib/db'
 
-const secret = process.env.SECRET || 'TS_SECRET'
+const secret = process.env.NEXT_PUBLIC_SECRET || 'TS_SECRET'
 
 const cors = initMiddleware(
   Cors({

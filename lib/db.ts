@@ -2,8 +2,8 @@ import mongodb from 'mongodb'
 
 const MongoClient = mongodb.MongoClient
 const ObjectID = mongodb.ObjectID
-const dbName = process.env.DB_NAME
-const uri = process.env.MONGO_URI || 'mongodb://localhost:27017'
+const dbName = process.env.NEXT_PUBLIC_DB_NAME
+const uri = process.env.NEXT_PUBLIC_MONGO_URI || 'mongodb://localhost:27017'
 const options = { useNewUrlParser: true, useUnifiedTopology: true }
 
 const state = { db: null }

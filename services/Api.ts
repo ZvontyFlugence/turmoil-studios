@@ -1,8 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios'
 
-const API_ROOT = process.env.VERCEL_ENV === 'production' ?
-  `${process.env.VERCEL_URL}/api` :
-  'http://localhost:8080/api/'
+const API_ROOT = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api/'
 const TIMEOUT = 20000
 const HEADERS = {
   'Content-Type': 'application/json',
